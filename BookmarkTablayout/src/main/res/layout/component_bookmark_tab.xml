@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@drawable/ic_tab_sharp"
+		android:paddingVertical="4dp"
+		android:paddingStart="4dp"
+		android:paddingEnd="24dp"
+		tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+	<ImageView
+			android:id="@+id/bookmark_icon"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_marginStart="@dimen/tab_start_space"
+			android:scaleType="centerInside"
+			app:layout_constraintBottom_toBottomOf="@id/texts_layout"
+			app:layout_constraintDimensionRatio="1:1"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="@id/texts_layout"
+			 />
+
+	<LinearLayout
+			android:id="@+id/texts_layout"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="8dp"
+			android:orientation="vertical"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toEndOf="@id/bookmark_icon"
+			app:layout_constraintTop_toTopOf="parent">
+
+		<TextView
+				android:id="@+id/bookmark_hint"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:fontFamily="sans-serif-medium"
+				android:includeFontPadding="false"
+				android:textColor="@color/teal_700"
+				android:textSize="14sp"
+				android:textStyle="italic"
+				tools:text="Hint" />
+
+		<TextView
+				android:id="@+id/bookmark_title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:includeFontPadding="false"
+				android:textAllCaps="true"
+				android:textColor="@color/black"
+				android:textSize="14sp"
+				android:textStyle="bold"
+				tools:text="Title" />
+
+	</LinearLayout>
+
+
+</merge>

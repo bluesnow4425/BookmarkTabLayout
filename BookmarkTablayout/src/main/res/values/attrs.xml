@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<attr name="style" format="enum">
+		<enum name="rounded" value="0" />
+		<enum name="sharp" value="1" />
+	</attr>
+
+	<declare-styleable name="BookMarkTab">
+
+		<attr name="icon" format="reference" />
+		<attr name="hint" format="string" />
+		<attr name="title" format="string" />
+
+		<!-- If you're using BookMarkTab in BookMarkTabLayout, set color in Tablayout is highly recommend.-->
+		<attr name="backgroundColor" format="color" />
+
+		<!--Considered removed. Not recommend to use.-->
+		<attr name="defaultSelected" format="boolean" />
+
+		<attr name="titleTextSize" format="dimension" />
+		<attr name="hintTextSize" format="dimension" />
+
+		<attr name="titleTextColor" format="color" />
+		<attr name="hintTextColor" format="color" />
+		<attr name="style" />
+
+	</declare-styleable>
+
+	<declare-styleable name="BookMarkTabLayout">
+
+		<!--Set tab unselected color here to unify all tabs in the tablayout.
+		  This overwrites the one defined in single BookMarkTab
+		  Note : Selected should be set along with unselected color.
+		  -->
+		<attr name="tabBackgroundColor" format="color" />
+		<attr name="style" />
+
+		<attr name="tabTitleTextSize" format="dimension" />
+		<attr name="tabHintTextSize" format="dimension" />
+
+		<attr name="tabTitleTextColor" format="color" />
+		<attr name="tabHintTextColor" format="color" />
+		<attr name="autoScrollOnSelected" format="boolean"/>
+	</declare-styleable>
+
+</resources>
