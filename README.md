@@ -4,11 +4,11 @@ A Tablayout with bookmark appearance as below.
 ![sample](https://github.com/bluesnow4425/BookmarkTabLayout/blob/main/static/style.png)
 
 ## Easy Implementation
-Gradle
+Use Gradle
 
 ```gradle
 dependencies {
-    implementation 'com.github.bluesnow4425:BookmarkTabLayout:1.0.0'
+    implementation 'com.github.bluesnow4425:BookmarkTabLayout:1.0.1'
 }
 ```
 Therefore, you can add either signle tab or tablayout in your layout.xml
@@ -24,14 +24,13 @@ Therefore, you can add either signle tab or tablayout in your layout.xml
         app:style="sharp/rounded" (optional, default:rounded)
         app:titleTextSize="12sp" (optional)
         app:hintTextSize="10sp" (optional)
-        app:backgroundColor="@color/bg_selector" (optional, use color selector for different states)
-        app:titleTextColor="@color/title_selector" (optional, use color selector for different states)
-        app:hintTextColor="@color/hint_selector" (optional, use color selector for different states)
+        app:backgroundColor="@color/selector1" (optional, use color selector for different states)
+        app:titleTextColor="@color/selector2" (optional, use color selector for different states)
         />
 ```
 
 
-### TabLayout
+### TabLayout/Multiple Tabs As A Group
 ```xml
 <com.bluesnow4425.bookmarkTablayout.BookMarkTabLayout
       ...
@@ -53,4 +52,6 @@ Therefore, you can add either signle tab or tablayout in your layout.xml
 
 </com.bluesnow4425.bookmarkTablayout.BookMarkTabLayout>
 ```
-and add **setOnItemSelectedListener** to tablayout in kt files.
+and add *setOnItemSelectedListener()* to tablayout in kt files to get notified or *getSelectedIndex()* to get selected item.
+
+**Limitation: Only inflate in layout.xml is possible at the moment, add tab programatically haven't implemented. You're welcome to download the project and modify by yourself. ^^**
