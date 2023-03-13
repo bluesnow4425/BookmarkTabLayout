@@ -55,3 +55,9 @@ Therefore, you can add either signle tab or tablayout in your layout.xml
 and add *setOnItemSelectedListener()* to tablayout in kt files to get notified or *getSelectedIndex()* to get selected item.
 
 **Limitation: Only inflate in layout.xml is possible at the moment, add tab programatically haven't implemented. You're welcome to download the project and modify by yourself. ^^**
+
+
+
+## Author
+As this is my first time publish a lib, please feel free to give me comments or advises.
+Thanks!
