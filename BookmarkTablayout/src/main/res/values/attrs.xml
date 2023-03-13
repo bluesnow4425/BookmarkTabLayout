@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+	<!-- Either rounded or sharp -->
 	<attr name="style" format="enum">
 		<enum name="rounded" value="0" />
 		<enum name="sharp" value="1" />
 	</attr>
 
 	<declare-styleable name="BookMarkTab">
-
 		<attr name="icon" format="reference" />
 		<attr name="hint" format="string" />
 		<attr name="title" format="string" />
@@ -41,6 +41,8 @@
 
 		<attr name="tabTitleTextColor" format="color" />
 		<attr name="tabHintTextColor" format="color" />
+
+		<!-- If the tablayout is wider than screen, set true enables horizontalscrollview scroll to center when selected -->
 		<attr name="autoScrollOnSelected" format="boolean"/>
 	</declare-styleable>
 
