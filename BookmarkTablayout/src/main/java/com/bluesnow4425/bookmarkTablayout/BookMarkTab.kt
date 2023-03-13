@@ -7,11 +7,12 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
-import com.bluesnow4425.bookmarkTablayout.databinding.ComponentBookmarkTabBinding
 
 /**
  * Custom bookmark view class that can easily be used in xml.
@@ -20,33 +21,31 @@ class BookMarkTab @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : ConstraintLayout(context, attrs) {
 
-    var binding: ComponentBookmarkTabBinding
-
     var hintTextColor: ColorStateList
-        get() = binding.bookmarkHint.textColors
+        get() = bookmarkHint.textColors
         set(value) {
-            binding.bookmarkHint.setTextColor(value)
+            bookmarkHint.setTextColor(value)
         }
 
     var titleTextColor: ColorStateList
-        get() = binding.bookmarkTitle.textColors
+        get() = bookmarkTitle.textColors
         set(value) {
-            binding.bookmarkTitle.setTextColor(value)
+            bookmarkTitle.setTextColor(value)
         }
 
     var titleTextSize
-        get() = binding.bookmarkTitle.textSize.toInt()
+        get() = bookmarkTitle.textSize.toInt()
         set(value) {
-            binding.bookmarkTitle.setTextSize(
+            bookmarkTitle.setTextSize(
                 TypedValue.COMPLEX_UNIT_PX,
                 value.toFloat()
             )
         }
 
     var hintTextSize: Int
-        get() = binding.bookmarkHint.textSize.toInt()
+        get() = bookmarkHint.textSize.toInt()
         set(value) {
-            binding.bookmarkHint.setTextSize(
+            bookmarkHint.setTextSize(
                 TypedValue.COMPLEX_UNIT_PX,
                 value.toFloat()
             )
@@ -63,9 +62,15 @@ class BookMarkTab @JvmOverloads constructor(
         }
 
 
+    private var bookmarkHint: TextView
+    private var bookmarkTitle: TextView
+    private var bookmarkIcon: ImageView
+
     init {
-        binding =
-            ComponentBookmarkTabBinding.inflate(LayoutInflater.from(context), this@BookMarkTab)
+        inflate(context, R.layout.component_bookmark_tab, this)
+        bookmarkHint = findViewById(R.id.bookmark_hint)
+        bookmarkTitle = findViewById(R.id.bookmark_title)
+        bookmarkIcon = findViewById(R.id.bookmark_icon)
 
         var typefaceType =
             context.obtainStyledAttributes(attrs, R.styleable.BookMarkTab, 0, 0)
@@ -74,23 +79,23 @@ class BookMarkTab @JvmOverloads constructor(
 
             //set icon
             if (typefaceType.hasValue(R.styleable.BookMarkTab_icon)) {
-                binding.bookmarkIcon.setImageDrawable(typefaceType.getDrawable(R.styleable.BookMarkTab_icon))
+                bookmarkIcon.setImageDrawable(typefaceType.getDrawable(R.styleable.BookMarkTab_icon))
             } else {
-                binding.bookmarkIcon.visibility = View.GONE
+                bookmarkIcon.visibility = View.GONE
             }
 
             //set hint
             if (typefaceType.hasValue(R.styleable.BookMarkTab_hint)) {
                 var hint = typefaceType.getString(R.styleable.BookMarkTab_hint)
-                binding.bookmarkHint.setText(hint)
+                bookmarkHint.setText(hint)
             } else {
-                binding.bookmarkHint.visibility = View.GONE
+                bookmarkHint.visibility = View.GONE
             }
 
 
             //set title
             var title = typefaceType.getString(R.styleable.BookMarkTab_title)
-            binding.bookmarkTitle.setText(title)
+            bookmarkTitle.setText(title)
 
             //set background color
             if (typefaceType.hasValue(R.styleable.BookMarkTab_backgroundColor)) {
@@ -156,9 +161,9 @@ class BookMarkTab @JvmOverloads constructor(
 
     override fun setSelected(selected: Boolean) {
         super.setSelected(selected)
-        binding.bookmarkTitle.isSelected = selected
-        binding.bookmarkHint.isSelected = selected
-        binding.bookmarkIcon.isSelected = selected
+        bookmarkTitle.isSelected = selected
+        bookmarkHint.isSelected = selected
+        bookmarkIcon.isSelected = selected
 
         elevation = if (isSelected) 2F else 1F
 

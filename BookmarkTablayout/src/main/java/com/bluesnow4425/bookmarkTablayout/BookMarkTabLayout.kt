@@ -19,14 +19,13 @@ class BookMarkTabLayout @JvmOverloads constructor(
 ) : HorizontalScrollView(context, attrs) {
 
     private var mTabBackgroundColor: ColorStateList?
-    private var mTabTitleSize : Int = 0
-    private var mTabHintSize :Int = 0
-    private var mTabTitleColor :ColorStateList?
-    private var mTabHintColor : ColorStateList?
+    private var mTabTitleSize: Int = 0
+    private var mTabHintSize: Int = 0
+    private var mTabTitleColor: ColorStateList?
+    private var mTabHintColor: ColorStateList?
     private var mItemSelectedListener: ((position: Int) -> Unit)? = null
-    private var mTabStyle : BookMarkTab.TabStyle
+    private var mTabStyle: BookMarkTab.TabStyle
     private var mAutoScroll = false
-
     private var mContainer: LinearLayoutCompat
 
     init {
@@ -37,20 +36,28 @@ class BookMarkTabLayout @JvmOverloads constructor(
         var typefaceType =
             context.obtainStyledAttributes(attrs, R.styleable.BookMarkTabLayout, 0, 0)
         try {
-            mTabBackgroundColor = typefaceType.getColorStateList(R.styleable.BookMarkTabLayout_tabBackgroundColor)
+            mTabBackgroundColor =
+                typefaceType.getColorStateList(R.styleable.BookMarkTabLayout_tabBackgroundColor)
 
-            mTabHintColor = typefaceType.getColorStateList(R.styleable.BookMarkTabLayout_tabHintTextColor)
-            mTabTitleColor = typefaceType.getColorStateList(R.styleable.BookMarkTabLayout_tabTitleTextColor)
+            mTabHintColor =
+                typefaceType.getColorStateList(R.styleable.BookMarkTabLayout_tabHintTextColor)
+            mTabTitleColor =
+                typefaceType.getColorStateList(R.styleable.BookMarkTabLayout_tabTitleTextColor)
 
             mTabHintSize =
                 typefaceType.getDimensionPixelSize(R.styleable.BookMarkTabLayout_tabHintTextSize, 0)
             mTabTitleSize =
-                typefaceType.getDimensionPixelSize(R.styleable.BookMarkTabLayout_tabTitleTextSize, 0)
+                typefaceType.getDimensionPixelSize(
+                    R.styleable.BookMarkTabLayout_tabTitleTextSize,
+                    0
+                )
 
-            mTabStyle = typefaceType.getEnum(R.styleable.BookMarkTabLayout_style,
+            mTabStyle = typefaceType.getEnum(
+                R.styleable.BookMarkTabLayout_style,
                 BookMarkTab.TabStyle.Rounded
             )
-            mAutoScroll = typefaceType.getBoolean(R.styleable.BookMarkTabLayout_autoScrollOnSelected, false)
+            mAutoScroll =
+                typefaceType.getBoolean(R.styleable.BookMarkTabLayout_autoScrollOnSelected, false)
 
         } finally {
             typefaceType.recycle()
@@ -62,12 +69,12 @@ class BookMarkTabLayout @JvmOverloads constructor(
             super.addView(child, params)
         } else {
             if (child is BookMarkTab) {
-                if (mTabBackgroundColor!=null) child.backgroundTintList = mTabBackgroundColor
+                if (mTabBackgroundColor != null) child.backgroundTintList = mTabBackgroundColor
                 child.tabStyle = mTabStyle
-                if (mTabHintColor!=null) child.hintTextColor = mTabHintColor!!
-                if (mTabTitleColor!=null) child.titleTextColor = mTabTitleColor!!
-                if (mTabTitleSize!=0) child.titleTextSize = mTabTitleSize!!.toInt()
-                if (mTabHintSize!=0) child.hintTextSize = mTabHintSize!!.toInt()
+                if (mTabHintColor != null) child.hintTextColor = mTabHintColor!!
+                if (mTabTitleColor != null) child.titleTextColor = mTabTitleColor!!
+                if (mTabTitleSize != 0) child.titleTextSize = mTabTitleSize!!.toInt()
+                if (mTabHintSize != 0) child.hintTextSize = mTabHintSize!!.toInt()
             }
             mContainer.addView(child)
         }
@@ -99,7 +106,7 @@ class BookMarkTabLayout @JvmOverloads constructor(
 
             var params = childView!!.layoutParams as LinearLayout.LayoutParams
             params.setMargins(
-                ((resources.getDimensionPixelSize(R.dimen.tab_start_space)*-0.6).toInt()),
+                ((resources.getDimensionPixelSize(R.dimen.tab_start_space) * -0.6).toInt()),
                 0,
                 0,
                 0
@@ -107,10 +114,22 @@ class BookMarkTabLayout @JvmOverloads constructor(
         }
     }
 
+
     fun setOnItemSelectedListener(func: ((position: Int) -> Unit)) {
         mItemSelectedListener = func
     }
 
+    /**
+     * get select tab index.
+     * @return -1 if can not find selected item.
+     */
+    fun getSelectedIndex(): Int {
+        for (position in 0 until mContainer.childCount) {
+            var childView = mContainer.getChildAt(position) as BookMarkTab
+            if (childView.isSelected) return position
+        }
+        return -1
+    }
 
     companion object Binding {
         @BindingAdapter("app:onItemSelectedInvoke")

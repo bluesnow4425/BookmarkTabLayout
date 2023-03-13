@@ -10,8 +10,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         findViewById<BookMarkTabLayout>(R.id.tabs).setOnItemSelectedListener {
-            Toast.makeText(this,  "clicked"+it,Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,  "clicked"+findViewById<BookMarkTabLayout>(R.id.tabs).getSelectedIndex(),Toast.LENGTH_SHORT).show()
         }
     }
 }
