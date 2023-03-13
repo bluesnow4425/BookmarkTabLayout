@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "BookmarkTablayout"
-include ':app'
+include ':sample'
 include ':BookmarkTablayout'

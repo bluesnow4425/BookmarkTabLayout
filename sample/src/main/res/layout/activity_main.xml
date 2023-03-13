@@ -5,28 +5,22 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:orientation="vertical"
-		android:paddingTop="16dp"
+		android:padding="16dp"
 		android:background="#F0F0F0"
 		tools:context=".MainActivity">
 
-	<com.bluesnow4425.bookmarkTablayout.BookMarkTab
-			app:layout_constraintTop_toTopOf="parent"
-			android:layout_width="wrap_content"
-			app:layout_constraintStart_toStartOf="parent"
-			app:title="Title"
-			app:titleTextSize="36sp"
-			android:layout_marginBottom="24dp"
-			app:titleTextColor="@color/tab_text_color"
-			app:backgroundColor="@color/tab_bg_color"
-			android:id= "@+id/tab1"
-			app:icon="@mipmap/ic_launcher_round"
+	<TextView
+			android:text="With Icon, Style Sharp"
+			android:layout_width="match_parent"
+			android:textColor="@color/black"
+			android:textStyle="bold"
 			android:layout_height="wrap_content"/>
 
 	<com.bluesnow4425.bookmarkTablayout.BookMarkTabLayout
 			android:id= "@+id/tabs"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="36dp"
+			android:layout_marginTop="16dp"
 			app:tabHintTextSize="10sp"
 			app:style="sharp"
 			app:tabBackgroundColor="@color/tab_bg_color"
@@ -37,6 +31,7 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				app:hint="Hint1"
+				app:icon="@drawable/ic_baseline_title_24"
 				app:title="Title 1" />
 
 		<com.bluesnow4425.bookmarkTablayout.BookMarkTab
@@ -44,6 +39,7 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				app:hint="Hint2"
+				app:icon="@drawable/ic_baseline_title_24"
 				app:title="Title 2" />
 
 		<com.bluesnow4425.bookmarkTablayout.BookMarkTab
@@ -51,13 +47,51 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				app:hint="Hint3"
+				app:icon="@drawable/ic_baseline_title_24"
+				app:title="Title 3" />
+
+	</com.bluesnow4425.bookmarkTablayout.BookMarkTabLayout>
+
+
+	<TextView
+			android:layout_marginTop="36dp"
+			android:text="Without Icon and hint, Style Rounded"
+			android:layout_width="match_parent"
+			android:textColor="@color/black"
+			android:textStyle="bold"
+			android:layout_height="wrap_content"/>
+
+	<com.bluesnow4425.bookmarkTablayout.BookMarkTabLayout
+			android:id= "@+id/tabs_2"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			app:tabHintTextSize="10sp"
+			app:tabBackgroundColor="@color/tab_bg_color"
+			app:tabTitleTextColor="@color/tab_text_color">
+
+		<com.bluesnow4425.bookmarkTablayout.BookMarkTab
+				android:id="@+id/tab1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:title="Title 1" />
+
+		<com.bluesnow4425.bookmarkTablayout.BookMarkTab
+				android:id="@+id/tab2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:title="Title 2" />
+
+		<com.bluesnow4425.bookmarkTablayout.BookMarkTab
+				android:id="@+id/tab3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
 				app:title="Title 3" />
 
 		<com.bluesnow4425.bookmarkTablayout.BookMarkTab
 				android:id="@+id/tab4"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				app:hint="Hint4"
 				app:title="Title 4" />
 	</com.bluesnow4425.bookmarkTablayout.BookMarkTabLayout>
 
