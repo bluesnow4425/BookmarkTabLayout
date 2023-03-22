@@ -1,4 +1,4 @@
-# BookMarkTabLayout
+# BookMarkTabLayout [![](https://jitpack.io/v/bluesnow4425/BookMarkTabLayout.svg)](https://jitpack.io/#bluesnow4425/BookMarkTabLayout)
 A Tablayout with bookmark appearance as below.
 
 ![sample](https://github.com/bluesnow4425/BookmarkTabLayout/blob/main/static/style.png)
